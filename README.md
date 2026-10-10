@@ -1,8 +1,10 @@
 # Skyline Air Reservation Analytics
 
-A classroom airline reservation system and SQL analytics portfolio by **JahMari Harrigan**, developed with Codex assistance. Node.js, HTML, CSS and MySQL connect a transactional booking workflow to a reproducible analysis of fictional reservation data.
+Node.js and MySQL airline reservation system that manages flight searches, seat bookings, and cancellations, featuring an admin dashboard and SQL reports for booking trends, seat occupancy, and revenue.
 
-## What this demonstrates
+Project by **JahMari Harrigan**, developed with Codex assistance.
+
+## Features
 - Relational modeling, primary/foreign/alternate keys, normalization and MySQL constraints.
 - Atomic multi-passenger bookings, concurrency control and historical seat-allocation records.
 - Customer authentication, database-backed sessions, CSRF protection and administrator authorization.
@@ -11,7 +13,7 @@ A classroom airline reservation system and SQL analytics portfolio by **JahMari 
 
 This is a classroom system. All flights, passenger names and payments are simulated. It does not issue real tickets or process money.
 
-## Quick start
+## How to run
 Prerequisites: Node.js 22 or newer, npm, and MySQL 8.4. The project was checked with Node.js 24 and MySQL 8.4.7 on Windows.
 
 1. Create a new empty MySQL database and a project account. Run these statements as your MySQL administrator, saving the generated password locally for your .env file:
