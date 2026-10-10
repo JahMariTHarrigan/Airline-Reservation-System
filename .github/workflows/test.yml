@@ -21,7 +21,7 @@ jobs:
           echo "::add-mask::$demo_secret"
           docker run -d --name skyline-ci -p 3306:3306 -e MYSQL_ROOT_PASSWORD="$root_secret" -e MYSQL_DATABASE=skyline_air -e MYSQL_USER=skyline -e MYSQL_PASSWORD="$db_secret" mysql:8.4
           for attempt in $(seq 1 60); do
-            if docker exec skyline-ci mysqladmin ping --silent >/dev/null 2>&1; then break; fi
+            if docker exec -e MYSQL_PWD="$db_secret" skyline-ci mysql --protocol=TCP -h127.0.0.1 -uskyline skyline_air -e "SELECT 1" >/dev/null 2>&1; then break; fi
             sleep 2
           done
           printf 'DB_HOST=127.0.0.1\nDB_PORT=3306\nDB_USER=skyline\nDB_NAME=skyline_air\nDB_PASSWORD=%s\nDEMO_PASSWORD=%s\n' "$db_secret" "$demo_secret" > .env
