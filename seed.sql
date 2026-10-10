@@ -1,4 +1,5 @@
--- Synthetic airports, aircraft and flights. scripts/setup.js adds dated instances and hashed demo accounts.
+-- just the sample airports, planes and flights here
+-- run scripts/setup.js to add flight dates and demo accounts with hashed passwords
 INSERT INTO airports VALUES
 ('ATL','Hartsfield Jackson Atlanta','Atlanta','America/New_York'),
 ('JFK','John F Kennedy','New York','America/New_York'),

@@ -1,4 +1,5 @@
--- MySQL 8.4. Run in a newly created database. All times are UTC.
+-- use MySQL 8.4 and start with a new database
+-- all the times here are in UTC
 CREATE TABLE users (
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
  name VARCHAR(80) NOT NULL, email VARCHAR(200) NOT NULL UNIQUE,

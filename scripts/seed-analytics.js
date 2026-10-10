@@ -1,4 +1,4 @@
-// Deterministic synthetic scenario, not observational airline data.
+// same sample booking data each run, not real airline data
 import { query, transaction, pool } from "../src/db.js";
 const [owner] = await query(
   "SELECT id FROM users WHERE email='customer@example.test'",

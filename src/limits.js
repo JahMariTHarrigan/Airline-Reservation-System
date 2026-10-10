@@ -1,4 +1,5 @@
-// In-process classroom limiter. For multiple servers use a shared store.
+// keeps track of request limits in this server's memory
+// if this runs on more than one server, theyll need a shared store
 const attempts = new Map();
 export function authLimit(req, res, next) {
   const now = Date.now(),
