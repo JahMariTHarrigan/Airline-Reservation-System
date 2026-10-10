@@ -1,0 +1,69 @@
+Created schema, 4 airports, 2 aircraft, 48 seats, 6 routes, 180 departures and two demo accounts.
+
+✔ T01 registration validation and valid login (294.9193ms)
+✔ T02 flight search and empty/invalid searches (78.1535ms)
+✔ T03 unauthorized and CSRF requests rejected (15.0513ms)
+✔ T04 booking ignores client price and persists all related records (31.5434ms)
+✔ T05 customers cannot read or cancel another customer booking (31.2066ms)
+✔ T06 concurrent attempts reserve a seat only once (16.4736ms)
+✔ T07 failed multi-passenger booking rolls back every inserted record (17.0984ms)
+✔ T08 cancellation releases inventory and voids simulated payment (43.3026ms)
+✔ T09 invalid passengers and seats are rejected (19.7021ms)
+✔ T10 admin authorization and catalog (96.5096ms)
+✔ T11 fare edits preserve existing booking totals (25.6991ms)
+✔ T12 analytics reconcile and quality counts are zero (13.2759ms)
+✔ T13 admin can create and edit airport and aircraft records (90.6482ms)
+✔ T14 full departure, schedule conflicts and departure cancellation (163.9644ms)
+✔ T15 logout invalidates persisted session (24.1416ms)
+✔ T16 MySQL rejects invalid relationships and dates (4.4842ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1549.4267
+
+Created 660 deterministic synthetic reservations across 60 dated departures. This is a designed scenario, not measured customer behavior.
+
+{
+  "outcomes": [
+    {
+      "status": "cancelled",
+      "bookings": 132,
+      "booked_value_usd": "26270.0000"
+    },
+    {
+      "status": "confirmed",
+      "bookings": 528,
+      "booked_value_usd": "105080.0000"
+    }
+  ],
+  "monthly": [
+    {
+      "month": "2026-06",
+      "bookings": 165,
+      "cancellations": "33",
+      "net_booked_value_usd": "24620.0000"
+    },
+    {
+      "month": "2026-07",
+      "bookings": 165,
+      "cancellations": "33",
+      "net_booked_value_usd": "27920.0000"
+    },
+    {
+      "month": "2026-08",
+      "bookings": 165,
+      "cancellations": "33",
+      "net_booked_value_usd": "24620.0000"
+    },
+    {
+      "month": "2026-09",
+      "bookings": 165,
+      "cancellations": "33",
+      "net_booked_value_usd": "27920.0000"
+    }
+  ]
+}
