@@ -1,4 +1,4 @@
-# Skyline Air Reservation Analytics
+# Airline Reservation System
 
 Node.js and MySQL airline reservation system that manages flight searches, seat bookings, and cancellations, featuring an admin dashboard and SQL reports for booking trends, seat occupancy, and revenue.
 
@@ -82,3 +82,4 @@ Keep this repository **private** as requested. The instructor must be invited se
 The original local alpha, beta and production history is preserved in `history/Skyline-Air-History.bundle`. Restore it with `git clone history/Skyline-Air-History.bundle skyline-air-history`. GitHub publication uses a separate upload commit.
 
 
+The project was renamed from Skyline Air to Airline Reservation System. Historical commits, evidence logs, and the original history bundle retain their original names. Existing database and session identifiers are retained for compatibility.
