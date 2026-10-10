@@ -1,0 +1,21 @@
+✔ T01 registration validation and valid login (353.4271ms)
+✔ T02 flight search and empty/invalid searches (77.0177ms)
+✔ T03 unauthorized and CSRF requests rejected (30.0708ms)
+✔ T04 booking ignores client price and persists all related records (49.8089ms)
+✔ T05 customers cannot read or cancel another customer booking (31.451ms)
+✔ T06 concurrent attempts reserve a seat only once (18.7019ms)
+✔ T07 failed multi-passenger booking rolls back every inserted record (15.1262ms)
+✔ T08 cancellation releases inventory and voids simulated payment (41.4207ms)
+✔ T09 invalid passengers and seats are rejected (21.1774ms)
+✔ T10 admin authorization and catalog (83.4941ms)
+✔ T11 fare edits preserve existing booking totals (53.3953ms)
+✔ T12 analytics reconcile and quality counts are zero (25.5537ms)
+✔ T13 admin can create and edit airport and aircraft records (109.5273ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1431.171

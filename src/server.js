@@ -4,6 +4,7 @@ import {fileURLToPath} from 'node:url';
 import {randomUUID} from 'node:crypto';
 import {pool,query,transaction} from './db.js';
 import {token,digest,hash,verify} from './security.js';
+import {adminRoutes} from './admin.js';
 export const app=express();
 app.disable('x-powered-by');app.use(helmet());app.use(express.json({limit:'32kb'}));
 const error=(message,status=400)=>Object.assign(new Error(message),{status});
@@ -39,7 +40,9 @@ const bookingSQL=`SELECT b.*,f.number,f.origin,f.destination,i.departure,i.arriv
 app.get('/api/bookings',auth,async(req,res)=>{const rows=await query(bookingSQL+' WHERE b.user_id=?'+(req.query.reference?' AND b.reference=?':'')+' ORDER BY b.created_at DESC',[req.session.user_id,...(req.query.reference?[String(req.query.reference).trim().toUpperCase()]:[])]);for(const b of rows)b.passengers=await query('SELECT p.name,s.label FROM booking_passengers bp JOIN passengers p ON p.id=bp.passenger_id JOIN seat_assignments sa ON sa.booking_id=bp.booking_id AND sa.passenger_id=bp.passenger_id JOIN seats s ON s.id=sa.seat_id WHERE bp.booking_id=?',[b.id]);res.json(rows);});
 export async function cancelBooking(id,user,administrator=false){return transaction(async c=>{const [[b]]=await c.execute('SELECT * FROM bookings WHERE id=?'+(administrator?'':' AND user_id=?')+' FOR UPDATE',[id,...(administrator?[]:[user])]);if(!b)throw error('Booking not found.',404);await c.execute('UPDATE bookings SET status=?,cancelled_at=COALESCE(cancelled_at,UTC_TIMESTAMP()) WHERE id=?',['cancelled',id]);await c.execute('UPDATE seat_assignments SET released_at=COALESCE(released_at,UTC_TIMESTAMP()) WHERE booking_id=?',[id]);await c.execute('UPDATE payments SET status=? WHERE booking_id=?',['voided',id]);});}
 app.post('/api/bookings/:id/cancel',auth,csrf,async(req,res)=>{await cancelBooking(req.params.id,req.session.user_id);res.json({message:'Booking cancelled. Seats released; simulated payment voided.'});});
-app.get('/api/health',async(req,res)=>{await query('SELECT 1');res.json({status:'ok',version:'alpha',database:'MySQL'});});
+app.use('/api/admin',auth,adminRoutes);
+app.post('/api/admin/reservations/:id/cancel',auth,admin,csrf,async(req,res)=>{await cancelBooking(req.params.id,req.session.user_id,true);res.json({message:'Reservation cancelled.'});});
+app.get('/api/health',async(req,res)=>{await query('SELECT 1');res.json({status:'ok',version:'beta',database:'MySQL'});});
 app.use(express.static(fileURLToPath(new URL('../public/',import.meta.url))));
 app.use((err,req,res,next)=>{if(res.headersSent)return next(err);const duplicate=err.code==='ER_DUP_ENTRY';const message=duplicate?'That email or seat is already in use. Refresh availability and try again.':err.status?err.message:'The request could not be completed.';if(!err.status&&!duplicate)console.error(err.code||err.message);res.status(duplicate?409:err.status||500).json({error:message});});
 if(process.argv[1]===fileURLToPath(import.meta.url)){const server=app.listen(Number(process.env.PORT||3000),process.env.HOST||'127.0.0.1',()=>console.log('Skyline Air at http://127.0.0.1:'+(process.env.PORT||3000)));process.on('SIGTERM',()=>server.close(()=>pool.end()));}
