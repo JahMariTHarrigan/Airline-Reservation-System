@@ -1,0 +1,30 @@
+name: MySQL integration checks
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Start disposable database with generated credentials
+        shell: bash
+        run: |
+          root_secret=$(openssl rand -hex 24)
+          db_secret=$(openssl rand -hex 24)
+          demo_secret=$(openssl rand -hex 24)
+          echo "::add-mask::$root_secret"
+          echo "::add-mask::$db_secret"
+          echo "::add-mask::$demo_secret"
+          docker run -d --name skyline-ci -p 3306:3306 -e MYSQL_ROOT_PASSWORD="$root_secret" -e MYSQL_DATABASE=skyline_air -e MYSQL_USER=skyline -e MYSQL_PASSWORD="$db_secret" mysql:8.4
+          for attempt in $(seq 1 60); do
+            if docker exec skyline-ci mysqladmin ping --silent >/dev/null 2>&1; then break; fi
+            sleep 2
+          done
+          printf 'DB_HOST=127.0.0.1\nDB_PORT=3306\nDB_USER=skyline\nDB_NAME=skyline_air\nDB_PASSWORD=%s\nDEMO_PASSWORD=%s\n' "$db_secret" "$demo_secret" > .env
+      - run: npm run setup
+      - run: npm test
+      - run: node --env-file=.env scripts/persistence-check.js

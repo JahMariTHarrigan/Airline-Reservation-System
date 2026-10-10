@@ -1,0 +1,492 @@
+{
+  "generatedAt": "2026-10-10T04:19:58.954Z",
+  "provenance": "Deterministic synthetic data, not real airline observations",
+  "outcomes": [
+    {
+      "status": "cancelled",
+      "bookings": 132,
+      "booked_value_usd": "26270.0000"
+    },
+    {
+      "status": "confirmed",
+      "bookings": 528,
+      "booked_value_usd": "105080.0000"
+    }
+  ],
+  "monthly": [
+    {
+      "month": "2026-06",
+      "bookings": 165,
+      "cancellations": "33",
+      "net_booked_value_usd": "24620.0000"
+    },
+    {
+      "month": "2026-07",
+      "bookings": 165,
+      "cancellations": "33",
+      "net_booked_value_usd": "27920.0000"
+    },
+    {
+      "month": "2026-08",
+      "bookings": 165,
+      "cancellations": "33",
+      "net_booked_value_usd": "24620.0000"
+    },
+    {
+      "month": "2026-09",
+      "bookings": 165,
+      "cancellations": "33",
+      "net_booked_value_usd": "27920.0000"
+    }
+  ],
+  "columns": [
+    {
+      "TABLE_NAME": "aircraft",
+      "COLUMN_NAME": "id",
+      "COLUMN_TYPE": "int unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "PRI",
+      "EXTRA": "auto_increment"
+    },
+    {
+      "TABLE_NAME": "aircraft",
+      "COLUMN_NAME": "registration",
+      "COLUMN_TYPE": "varchar(12)",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "UNI",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "aircraft",
+      "COLUMN_NAME": "model",
+      "COLUMN_TYPE": "varchar(80)",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "airports",
+      "COLUMN_NAME": "code",
+      "COLUMN_TYPE": "char(3)",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "PRI",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "airports",
+      "COLUMN_NAME": "name",
+      "COLUMN_TYPE": "varchar(100)",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "airports",
+      "COLUMN_NAME": "city",
+      "COLUMN_TYPE": "varchar(80)",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "airports",
+      "COLUMN_NAME": "timezone",
+      "COLUMN_TYPE": "varchar(60)",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "booking_passengers",
+      "COLUMN_NAME": "booking_id",
+      "COLUMN_TYPE": "bigint unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "PRI",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "booking_passengers",
+      "COLUMN_NAME": "passenger_id",
+      "COLUMN_TYPE": "bigint unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "PRI",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "bookings",
+      "COLUMN_NAME": "id",
+      "COLUMN_TYPE": "bigint unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "PRI",
+      "EXTRA": "auto_increment"
+    },
+    {
+      "TABLE_NAME": "bookings",
+      "COLUMN_NAME": "reference",
+      "COLUMN_TYPE": "char(16)",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "UNI",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "bookings",
+      "COLUMN_NAME": "user_id",
+      "COLUMN_TYPE": "bigint unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "MUL",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "bookings",
+      "COLUMN_NAME": "instance_id",
+      "COLUMN_TYPE": "bigint unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "MUL",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "bookings",
+      "COLUMN_NAME": "status",
+      "COLUMN_TYPE": "enum('confirmed','cancelled')",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "bookings",
+      "COLUMN_NAME": "unit_fare_cents",
+      "COLUMN_TYPE": "int unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "bookings",
+      "COLUMN_NAME": "total_cents",
+      "COLUMN_TYPE": "int unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "bookings",
+      "COLUMN_NAME": "created_at",
+      "COLUMN_TYPE": "datetime",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": "DEFAULT_GENERATED"
+    },
+    {
+      "TABLE_NAME": "bookings",
+      "COLUMN_NAME": "cancelled_at",
+      "COLUMN_TYPE": "datetime",
+      "IS_NULLABLE": "YES",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "flight_instances",
+      "COLUMN_NAME": "id",
+      "COLUMN_TYPE": "bigint unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "PRI",
+      "EXTRA": "auto_increment"
+    },
+    {
+      "TABLE_NAME": "flight_instances",
+      "COLUMN_NAME": "flight_id",
+      "COLUMN_TYPE": "int unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "MUL",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "flight_instances",
+      "COLUMN_NAME": "aircraft_id",
+      "COLUMN_TYPE": "int unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "MUL",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "flight_instances",
+      "COLUMN_NAME": "departure",
+      "COLUMN_TYPE": "datetime",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "MUL",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "flight_instances",
+      "COLUMN_NAME": "arrival",
+      "COLUMN_TYPE": "datetime",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "flight_instances",
+      "COLUMN_NAME": "fare_cents",
+      "COLUMN_TYPE": "int unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "flight_instances",
+      "COLUMN_NAME": "status",
+      "COLUMN_TYPE": "enum('scheduled','cancelled')",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "flights",
+      "COLUMN_NAME": "id",
+      "COLUMN_TYPE": "int unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "PRI",
+      "EXTRA": "auto_increment"
+    },
+    {
+      "TABLE_NAME": "flights",
+      "COLUMN_NAME": "number",
+      "COLUMN_TYPE": "varchar(10)",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "UNI",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "flights",
+      "COLUMN_NAME": "origin",
+      "COLUMN_TYPE": "char(3)",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "MUL",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "flights",
+      "COLUMN_NAME": "destination",
+      "COLUMN_TYPE": "char(3)",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "MUL",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "passengers",
+      "COLUMN_NAME": "id",
+      "COLUMN_TYPE": "bigint unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "PRI",
+      "EXTRA": "auto_increment"
+    },
+    {
+      "TABLE_NAME": "passengers",
+      "COLUMN_NAME": "name",
+      "COLUMN_TYPE": "varchar(80)",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "payments",
+      "COLUMN_NAME": "id",
+      "COLUMN_TYPE": "bigint unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "PRI",
+      "EXTRA": "auto_increment"
+    },
+    {
+      "TABLE_NAME": "payments",
+      "COLUMN_NAME": "booking_id",
+      "COLUMN_TYPE": "bigint unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "UNI",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "payments",
+      "COLUMN_NAME": "amount_cents",
+      "COLUMN_TYPE": "int unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "payments",
+      "COLUMN_NAME": "status",
+      "COLUMN_TYPE": "enum('simulated','voided')",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "seat_assignments",
+      "COLUMN_NAME": "id",
+      "COLUMN_TYPE": "bigint unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "PRI",
+      "EXTRA": "auto_increment"
+    },
+    {
+      "TABLE_NAME": "seat_assignments",
+      "COLUMN_NAME": "booking_id",
+      "COLUMN_TYPE": "bigint unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "MUL",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "seat_assignments",
+      "COLUMN_NAME": "passenger_id",
+      "COLUMN_TYPE": "bigint unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "seat_assignments",
+      "COLUMN_NAME": "instance_id",
+      "COLUMN_TYPE": "bigint unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "MUL",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "seat_assignments",
+      "COLUMN_NAME": "aircraft_id",
+      "COLUMN_TYPE": "int unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "seat_assignments",
+      "COLUMN_NAME": "seat_id",
+      "COLUMN_TYPE": "int unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "MUL",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "seat_assignments",
+      "COLUMN_NAME": "released_at",
+      "COLUMN_TYPE": "datetime",
+      "IS_NULLABLE": "YES",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "seat_assignments",
+      "COLUMN_NAME": "active_seat",
+      "COLUMN_TYPE": "int unsigned",
+      "IS_NULLABLE": "YES",
+      "COLUMN_KEY": "",
+      "EXTRA": "STORED GENERATED"
+    },
+    {
+      "TABLE_NAME": "seats",
+      "COLUMN_NAME": "id",
+      "COLUMN_TYPE": "int unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "PRI",
+      "EXTRA": "auto_increment"
+    },
+    {
+      "TABLE_NAME": "seats",
+      "COLUMN_NAME": "aircraft_id",
+      "COLUMN_TYPE": "int unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "MUL",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "seats",
+      "COLUMN_NAME": "label",
+      "COLUMN_TYPE": "varchar(4)",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "sessions",
+      "COLUMN_NAME": "token_hash",
+      "COLUMN_TYPE": "char(64)",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "PRI",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "sessions",
+      "COLUMN_NAME": "user_id",
+      "COLUMN_TYPE": "bigint unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "MUL",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "sessions",
+      "COLUMN_NAME": "csrf_token",
+      "COLUMN_TYPE": "char(48)",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "sessions",
+      "COLUMN_NAME": "expires_at",
+      "COLUMN_TYPE": "datetime",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "MUL",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "users",
+      "COLUMN_NAME": "id",
+      "COLUMN_TYPE": "bigint unsigned",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "PRI",
+      "EXTRA": "auto_increment"
+    },
+    {
+      "TABLE_NAME": "users",
+      "COLUMN_NAME": "name",
+      "COLUMN_TYPE": "varchar(80)",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "users",
+      "COLUMN_NAME": "email",
+      "COLUMN_TYPE": "varchar(200)",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "UNI",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "users",
+      "COLUMN_NAME": "password_hash",
+      "COLUMN_TYPE": "varchar(200)",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "users",
+      "COLUMN_NAME": "role",
+      "COLUMN_TYPE": "enum('customer','admin')",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": ""
+    },
+    {
+      "TABLE_NAME": "users",
+      "COLUMN_NAME": "created_at",
+      "COLUMN_TYPE": "timestamp",
+      "IS_NULLABLE": "NO",
+      "COLUMN_KEY": "",
+      "EXTRA": "DEFAULT_GENERATED"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Operations overview | Skyline Air</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="admin">
+    <a class="skip" href="#main">Skip to content</a>
+    <header>
+      <nav aria-label="Main">
+        <a class="brand" href="index.html">skyline<span>air.</span></a
+        ><a href="index.html">Find a flight</a
+        ><a href="my-bookings.html">My bookings</a
+        ><a id="admin-link" class="hidden" href="admin.html">Operations</a>
+        <div id="account" class="inline"></div>
+      </nav>
+    </header>
+    <main id="main">
+      <p class="muted notice">
+        CLASSROOM DEMO · Fictional flights and passengers · No real payments
+      </p>
+      <div id="message" class="hidden" role="status" aria-live="polite"></div>
+      <span class="eyebrow">SKYLINE AIR</span>
+      <h1>Operations overview</h1>
+      <nav class="admin-tabs" aria-label="Administration">
+        <a href="admin.html">Overview</a
+        ><a href="admin-airports.html">Airports</a
+        ><a href="admin-aircraft.html">Aircraft</a
+        ><a href="admin-flights.html">Schedules</a
+        ><a href="admin-reservations.html">Reservations</a
+        ><a href="analytics.html">Analytics</a>
+      </nav>
+      <div id="overview"></div>
+    </main>
+    <footer>
+      Skyline Air · Systems analysis &amp; reservation analytics · All schedule
+      times shown in UTC.
+    </footer>
+  </body>
+</html>

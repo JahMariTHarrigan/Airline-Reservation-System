@@ -1,0 +1,1 @@
+PASS T17: booking, passenger, price and database-backed session survived a Node.js server restart; cancellation succeeded after restart.
