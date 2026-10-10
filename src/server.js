@@ -311,7 +311,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     process.env.HOST || "127.0.0.1",
     () =>
       console.log(
-        "Skyline Air at http://127.0.0.1:" + (process.env.PORT || 3000),
+        "Airline Reservation System at http://127.0.0.1:" + (process.env.PORT || 3000),
       ),
   );
   process.on("SIGTERM", () => server.close(() => pool.end()));
