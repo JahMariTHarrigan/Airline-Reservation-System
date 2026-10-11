@@ -72,7 +72,7 @@ Booking creation locks the dated departure, derives price on the server, and ins
 The commits were created during actual successive implementation stages. They are not backdated. Codex assistance is recorded in `DEVELOPMENT_LOG.md`.
 
 ## Course submission status
-The course reports and PDF video guide are in `docs/`. Three real user evaluation sessions, actual desktop/mobile browser evidence, and the student's presentation remain human verification tasks until recorded. Blank participant forms are not results. Resume work was deferred by the project owner. See `SUBMISSION_CHECKLIST.md` before submission.
+The course reports and PDF video guide are in `docs/`. The guided owner walkthrough and a genuine CLI print refinement are recorded in the evaluation report and evidence/cli-print-review.md. Three participant evaluations are recorded from owner-supplied feedback and ratings; tested versions and their relationship to the development timeline still need reconciliation. The student's presentation remains incomplete. Narrow-window and keyboard checks were owner-reported; actual mobile-device and assistive-technology checks remain unverified. Blank participant forms are not results. Resume revisions were prepared separately; final submission files and links still need checking. See `SUBMISSION_CHECKLIST.md` before submission.
 
 ## Limits and next steps
 One-way, single-segment economy bookings; no layovers, hotels, cars, discounts or real payment provider. Aircraft seat layouts are fixed after creation. Existing flight definitions with dated departures cannot change routes; cancel and create a replacement schedule instead. Fares can change for new bookings. No password reset, email delivery, audit trail or multi-server rate-limit store. The administrator list shows the latest 300 departures/reservations; the customer list shows all owned bookings. HTTPS and secure cookies are required for hosted use (`NODE_ENV=production`).
@@ -83,3 +83,11 @@ The original local alpha, beta and production history is preserved in `history/S
 
 
 The project was renamed from Skyline Air to Airline Reservation System. Historical commits, evidence logs, and the original history bundle retain their original names. Existing database and session identifiers are retained for compatibility.
+
+## Browser evidence
+
+Owner walkthrough, October 10, 2026. Fictional booking data.
+
+![Reservation analytics](evidence/owner-analytics.png)
+
+![Print preview after CLI refinement](evidence/cli-print-after.png)

@@ -17,3 +17,8 @@ Thirteen passing automated tests. No schema migration was needed.
 5. Added reports, ER diagram, interface wireframes, user evaluation forms and a PDF video guide.
 
 Sixteen integration tests and the restart check passed before packaging. Browser/manual participant evidence is still outstanding. Earlier failed environment runs are described in DEVELOPMENT_LOG.md; they are not represented as passing tests.
+
+## Post-release evidence and print refinement — October 10, 2026
+- Genuine CLI session added a print-only selector to hide My Bookings lookup controls; five static checks and owner print preview passed.
+- Updated analysis key terminology, implementation status and evaluation evidence, with actual screenshots and explicit owner-reported checks.
+- Three participant evaluations are now documented from owner-supplied information; timeline reconciliation, video, final resume checks and repository-access checks remain open. Historical test logs remain unchanged.
