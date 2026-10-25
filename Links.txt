@@ -1,2 +1,4 @@
-GitHub repository (private): https://github.com/JahMariTHarrigan/Airline-Reservation-System
-YouTube presentation: Pending recording and upload by JahMari Harrigan.
+Airline Reservation System - JahMari Harrigan
+
+GitHub repository:
+https://github.com/JahMariTHarrigan/Airline-Reservation-System

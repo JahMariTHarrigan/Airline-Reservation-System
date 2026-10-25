@@ -1,6 +1,6 @@
 # Airline Reservation System
 
-Node.js and MySQL airline reservation system that manages flight searches, seat bookings, and cancellations, featuring an admin dashboard and SQL reports for booking trends, seat occupancy, and revenue.
+A Node.js and MySQL application for searching flights, booking seats and cancelling reservations. The admin dashboard includes SQL reports for booking trends, seat occupancy, cancellations and simulated booking value.
 
 Project by **JahMari Harrigan**, developed with Codex assistance.
 
@@ -77,9 +77,9 @@ The course reports and PDF video guide are in `docs/`. The guided owner walkthro
 ## Limits and next steps
 One-way, single-segment economy bookings; no layovers, hotels, cars, discounts or real payment provider. Aircraft seat layouts are fixed after creation. Existing flight definitions with dated departures cannot change routes; cancel and create a replacement schedule instead. Fares can change for new bookings. No password reset, email delivery, audit trail or multi-server rate-limit store. The administrator list shows the latest 300 departures/reservations; the customer list shows all owned bookings. HTTPS and secure cookies are required for hosted use (`NODE_ENV=production`).
 
-Keep this repository **private** as requested. The instructor must be invited separately to view it. A private repository link alone will not let recruiters inspect its contents; visibility can be reconsidered later. This repository is source code, not a deployed website.
+This repository contains the application source, reports and test evidence. To try the application, follow the local setup instructions above. The course presentation link is included only in the submission ZIP.
 
-The original local alpha, beta and production history is preserved in `history/Skyline-Air-History.bundle`. Restore it with `git clone history/Skyline-Air-History.bundle skyline-air-history`. GitHub publication uses a separate upload commit.
+The original `alpha`, `beta` and `production` versions are available as GitHub tags. A backup of their history is also preserved in `history/Skyline-Air-History.bundle`.
 
 
 The project was renamed from Skyline Air to Airline Reservation System. Historical commits, evidence logs, and the original history bundle retain their original names. Existing database and session identifiers are retained for compatibility.
